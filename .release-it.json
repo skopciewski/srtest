@@ -6,8 +6,7 @@
     "publish": false
   },
   "github": {
-    "release": true,
-    "autoGenerate": true
+    "release": true
   },
   "plugins": {
     "@j-ulrich/release-it-regex-bumper": {
