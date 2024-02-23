@@ -24,7 +24,7 @@
       "preset": {
         "name": "conventionalcommits"
       },
-      "infile": false
+      "infile": "c2.md"
     }
   }
 }
