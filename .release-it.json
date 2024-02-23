@@ -1,12 +1,12 @@
 {
   "git": {
-    "push": false
+    "push": true
   },
   "npm": {
     "publish": false
   },
   "github": {
-    "release": false
+    "release": true
   },
   "plugins": {
     "@j-ulrich/release-it-regex-bumper": {
