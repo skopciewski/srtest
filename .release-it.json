@@ -6,7 +6,8 @@
     "publish": false
   },
   "github": {
-    "release": true
+    "release": true,
+    "autoGenerate": true
   },
   "plugins": {
     "@j-ulrich/release-it-regex-bumper": {
@@ -17,7 +18,8 @@
       }
     },
     "@release-it/keep-a-changelog": {
-      "filename": "CHANGELOG.md"
+      "filename": "CHANGELOG.md",
+      "addUnreleased": true
     }
   }
 }
