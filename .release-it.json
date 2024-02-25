@@ -1,6 +1,8 @@
 {
   "git": {
-    "push": true
+    "push": true,
+    "commitMessage": "chore(release): ${version}",
+    "requireBranch": "main"
   },
   "npm": {
     "publish": false
@@ -24,7 +26,10 @@
       "preset": {
         "name": "conventionalcommits"
       },
-      "infile": "c2.md"
+      "infile": false,
+      "context": {
+        "linkCompare": true
+      }
     }
   }
 }
