@@ -19,6 +19,7 @@ SHA1=$3
 # merge, squash or commit. See https://git-scm.com/docs/githooks
 if [[ -z "$COMMIT_SOURCE" ]]
 then
+  hint=$(cat "$COMMIT_MSG_FILE")
   echo ": " > "$COMMIT_MSG_FILE"
   echo "" >> "$COMMIT_MSG_FILE"
   ref=$(git rev-parse --abbrev-ref HEAD)
@@ -27,6 +28,5 @@ then
     ticket="${BASH_REMATCH[1]}"
     echo "Ref: ${ticket}" >> "$COMMIT_MSG_FILE"
   fi
-  hint=$(cat "$COMMIT_MSG_FILE")
   echo "$hint" >> "$COMMIT_MSG_FILE"
 fi
