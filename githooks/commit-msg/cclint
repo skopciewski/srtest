@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+
+LIGHT_GRAY="\033[0;37m"
+YELLOW="\033[33m"
+CYAN="\033[36m"
+RED="\033[31m"
+UNDO_COLOR="\033[0m"
+
+release_tag=master
+sailr_repo="https://github.com/craicoverflow/sailr/tree/$release_tag"
+
+
+# set values from config file to variables
+set_config_values() {
+  enabled=true
+
+  if [[ ! $enabled ]]; then
+    exit 0
+  fi
+
+  revert=true
+  types="build chore ci docs feat fix perf refactor style"
+  min_length=10
+  max_length=52
+}
+
+# build the regex pattern based on the config file
+build_regex() {
+  set_config_values
+
+  regexp="^[.0-9]+$|"
+
+  if $revert; then
+      regexp="${regexp}^([Rr]evert|[Mm]erge):? )?.*$|^("
+  fi
+
+  for type in $types
+  do
+    regexp="${regexp}$type|"
+  done
+
+  regexp="${regexp%|})(\(.+\))?: "
+
+  regexp="${regexp}.{$min_length,$max_length}$"
+}
+
+print_error() {
+  echo -e "${RED}[Invalid Commit Message]${UNDO_COLOR}"
+  echo -e "------------------------"
+}
+
+# get the first line of the commit message
+INPUT_FILE=$1
+commit_message=`head -n1 $INPUT_FILE`
+
+build_regex
+
+commit_msg_len=${#commit_message}
+if [[ $commit_msg_len -lt $min_length || $commit_msg_len -gt $max_length ]]; then
+  print_error
+  echo -e "${LIGHT_GRAY}Expected length: Min=${CYAN}$min_length${UNDO_COLOR} Max=${CYAN}$max_length${UNDO_COLOR}"
+  echo -e "Actual length: ${YELLOW}${commit_msg_len}${UNDO_COLOR}"
+  exit 1
+fi
+
+if [[ ! $commit_message =~ $regexp ]]; then
+  print_error
+  echo -e "${LIGHT_GRAY}Expected prefixes: ${CYAN}${types[@]}${UNDO_COLOR}"
+  echo -e "Actual commit message: ${YELLOW}\"$commit_message\"${UNDO_COLOR}"
+  exit 1
+fi
