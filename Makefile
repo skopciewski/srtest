@@ -11,17 +11,18 @@ chaneglog:
 ifdef EDITOR
 	UNRELEASED_FILE=.unreleased/$(shell date +"%Y%m%d%H%M%S").md; \
 	mkdir -p $${UNRELEASED_FILE%/*}; \
-	echo -e "---\nbump: patch\n---" > $$UNRELEASED_FILE; \
+	echo -e "---" > $$UNRELEASED_FILE; \
 	BRANCH_NAME=$$(git symbolic-ref --short HEAD); \
-	ISSUE_ID=""; \
-	if echo $$BRANCH_NAME | grep -Eq '^([A-Z]+-[0-9]+)'; then \
-		ISSUE_ID=$$(echo $$BRANCH_NAME | grep -oE '^([A-Z]+-[0-9]+)'); \
-	elif echo $$BRANCH_NAME | grep -Eq '/([A-Z]+-[0-9]+)'; then \
-		ISSUE_ID=$$(echo $$BRANCH_NAME | grep -oE '/([A-Z]+-[0-9]+)' | cut -c 2-); \
+	BUMP="patch"; \
+	if echo $$BRANCH_NAME | grep -Eq '^feature/'; then \
+		BUMP="minor"; \
 	fi; \
+	ISSUE_ID=$$(echo $$BRANCH_NAME | grep -oE '([A-Z]+-[0-9]+)' | head -n 1); \
 	if [ -n "$$ISSUE_ID" ]; then \
-		echo -e "\nRef: $$ISSUE_ID" >> $$UNRELEASED_FILE; \
+		echo -e "\nissue: $$ISSUE_ID" >> $$UNRELEASED_FILE; \
 	fi; \
+	echo -e "bump: $$BUMP" >> $$UNRELEASED_FILE; \
+	echo -e "---" >> $$UNRELEASED_FILE; \
 	$(EDITOR) $$UNRELEASED_FILE
 else
 	@echo "EDITOR variable is not defined. Please define it before running this command."
