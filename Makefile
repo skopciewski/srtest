@@ -9,7 +9,7 @@ install-hooks:
 
 chaneglog:
 ifdef EDITOR
-	UNRELEASED_FILE=.unreleased/$(shell date +"%Y%m%d%H%M%S").md; \
+	@UNRELEASED_FILE=.unreleased/$(shell date +"%Y%m%d%H%M%S").md; \
 	mkdir -p $${UNRELEASED_FILE%/*}; \
 	echo -e "---" > $$UNRELEASED_FILE; \
 	BRANCH_NAME=$$(git symbolic-ref --short HEAD); \
@@ -29,6 +29,8 @@ ifdef EDITOR
 	fi; \
 	echo -e "---\n" >> $$UNRELEASED_FILE; \
 	$(EDITOR) $$UNRELEASED_FILE
+	git add $$UNRELEASED_FILE
+	git commit -m "Add unreleased changelog fragment"
 else
 	@echo "EDITOR variable is not defined. Please define it before running this command."
 	@exit 1
