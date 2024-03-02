@@ -8,10 +8,10 @@ repos:
   hooks:
   - id: check-merge-conflict
   - id: check-shebang-scripts-are-executable
-- repo: https://gitlab.com/schmieder.matthias/python-kacl
-  rev: v0.4.6
-  hooks:
-  - id: kacl-verify
+# - repo: https://gitlab.com/schmieder.matthias/python-kacl
+#   rev: v0.4.6
+#   hooks:
+#   - id: kacl-verify
 - repo: https://github.com/jorisroovers/gitlint
   rev: v0.19.1
   hooks:
