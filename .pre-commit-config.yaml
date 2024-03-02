@@ -1,0 +1,19 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.5.0
+  hooks:
+  - id: check-merge-conflict
+  - id: check-shebang-scripts-are-executable
+- repo: https://github.com/jorisroovers/gitlint
+  rev: v0.19.1
+  hooks:
+  - id: gitlint
+    name: gitlint
+    description: Checks your git commit messages for style.
+    language: python
+    additional_dependencies: ["./gitlint-core[trusted-deps]"]
+    entry: gitlint
+    args: [--staged, --msg-filename]
+    stages: [commit-msg]
