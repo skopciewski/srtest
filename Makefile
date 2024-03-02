@@ -29,7 +29,7 @@ ifdef EDITOR
 	fi; \
 	echo -e "---\n" >> $$UNRELEASED_FILE; \
 	$(EDITOR) $$UNRELEASED_FILE
-	git add $$UNRELEASED_FILE
+	git add $(UNRELEASED_FILE)
 	git commit -m "Add unreleased changelog fragment"
 else
 	@echo "EDITOR variable is not defined. Please define it before running this command."
