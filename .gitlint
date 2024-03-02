@@ -30,18 +30,12 @@ regex-style-search=true
 #extra-path=examples/
 
 
+ignore=body-is-missing, body-changed-file-mention
+
 ### RULE CONFIGURATION ###
 [title-max-length]
 line-length=50
 
 [title-min-length]
 min-length=5
-
-[body-is-missing]
-# Ignore this rule on merge commits (default=true) #
-#ignore-merge-commits=false
-
-[body-changed-file-mention]
-# Files that need to be explicitly mentioned in the body when they change
-#files=gitlint-core/gitlint/rules.py,README.md
 
