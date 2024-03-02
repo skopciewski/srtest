@@ -17,12 +17,12 @@ ifdef EDITOR
 	if echo $$BRANCH_NAME | grep -Eq '^feature/'; then \
 		BUMP="minor"; \
 	fi; \
+	echo -e "bump: $$BUMP" >> $$UNRELEASED_FILE; \
 	ISSUE_ID=$$(echo $$BRANCH_NAME | grep -oE '([A-Z]+-[0-9]+)' | head -n 1); \
 	if [ -n "$$ISSUE_ID" ]; then \
-		echo -e "\nissue: $$ISSUE_ID" >> $$UNRELEASED_FILE; \
+		echo -e "issue: $$ISSUE_ID" >> $$UNRELEASED_FILE; \
 	fi; \
-	echo -e "bump: $$BUMP" >> $$UNRELEASED_FILE; \
-	echo -e "---" >> $$UNRELEASED_FILE; \
+	echo -e "---\n" >> $$UNRELEASED_FILE; \
 	$(EDITOR) $$UNRELEASED_FILE
 else
 	@echo "EDITOR variable is not defined. Please define it before running this command."
