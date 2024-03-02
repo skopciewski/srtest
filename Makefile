@@ -18,7 +18,12 @@ ifdef EDITOR
 		BUMP="minor"; \
 	fi; \
 	echo -e "bump: $$BUMP" >> $$UNRELEASED_FILE; \
-	ISSUE_ID=$$(echo $$BRANCH_NAME | grep -oE '([A-Z]+-[0-9]+)' | head -n 1); \
+	ISSUE_ID=""; \
+	if echo $$BRANCH_NAME | grep -Eq '^([A-Z]+-[0-9]+)'; then \
+		ISSUE_ID=$$(echo $$BRANCH_NAME | grep -oE '^([A-Z]+-[0-9]+)'); \
+	elif echo $$BRANCH_NAME | grep -Eq '/([A-Z]+-[0-9]+)'; then \
+		ISSUE_ID=$$(echo $$BRANCH_NAME | grep -oE '/([A-Z]+-[0-9]+)' | cut -c 2-); \
+	fi; \
 	if [ -n "$$ISSUE_ID" ]; then \
 		echo -e "issue: $$ISSUE_ID" >> $$UNRELEASED_FILE; \
 	fi; \
