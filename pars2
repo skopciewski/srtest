@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo $1
+if grep -qE "^---\s*\nbump: (patch|minor|major)\nissue: [A-Z]+-[0-9]+\s*\n---" $1 && grep -qE "^### (Added|Changed)\s*\n.*" $1; then
+  echo "Plik spełnia określone kryteria."
+else
+  echo "Plik nie spełnia określonych kryteriów."
+fi

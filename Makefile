@@ -11,13 +11,14 @@ chaneglog:
 ifdef EDITOR
 	@UNRELEASED_FILE=.unreleased/$(shell date +"%Y%m%d%H%M%S").md; \
 	mkdir -p $${UNRELEASED_FILE%/*}; \
-	echo -e "---" > $$UNRELEASED_FILE; \
+	echo -e "<!---" > $$UNRELEASED_FILE; \
 	BRANCH_NAME=$$(git symbolic-ref --short HEAD); \
 	BUMP="patch"; \
 	if echo $$BRANCH_NAME | grep -Eq '^feature/'; then \
 		BUMP="minor"; \
 	fi; \
-	echo -e "bump: $$BUMP" >> $$UNRELEASED_FILE; \
+	echo -e "// allowed states: major, minor, patch" >> $$UNRELEASED_FILE; \
+	echo -e "- bump: $$BUMP" >> $$UNRELEASED_FILE; \
 	ISSUE_ID=""; \
 	if echo $$BRANCH_NAME | grep -Eq '^([A-Z]+-[0-9]+)'; then \
 		ISSUE_ID=$$(echo $$BRANCH_NAME | grep -oE '^([A-Z]+-[0-9]+)'); \
@@ -25,10 +26,21 @@ ifdef EDITOR
 		ISSUE_ID=$$(echo $$BRANCH_NAME | grep -oE '/([A-Z]+-[0-9]+)' | cut -c 2-); \
 	fi; \
 	if [ -n "$$ISSUE_ID" ]; then \
-		echo -e "issue: $$ISSUE_ID" >> $$UNRELEASED_FILE; \
+		echo -e "- ref: $$ISSUE_ID" >> $$UNRELEASED_FILE; \
 	fi; \
-	echo -e "---\n" >> $$UNRELEASED_FILE; \
+	echo -e "--->\n" >> $$UNRELEASED_FILE; \
+	echo -e "### Notice\n" >> $$UNRELEASED_FILE; \
+	echo -e "### Changed\n" >> $$UNRELEASED_FILE; \
+	echo -e "### Added\n" >> $$UNRELEASED_FILE; \
+	echo -e "### Removed\n" >> $$UNRELEASED_FILE; \
+	echo -e "### Fixed\n" >> $$UNRELEASED_FILE; \
 	$(EDITOR) $$UNRELEASED_FILE; \
+	pypy3 ./pars3.py $$UNRELEASED_FILE; \
+	if [ $$? -eq 0 ]; then \
+		echo "Script executed successfully"; \
+	else \
+		echo "Script failed"; \
+	fi; \
 	git add $$UNRELEASED_FILE; \
 	git commit -m "Add unreleased changelog fragment"
 else

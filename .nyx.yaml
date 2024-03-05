@@ -2,6 +2,6 @@
 dryRun: false
 initialVersion: "0.1.0"
 preset: simple
-releaseLenient: true
+releaseLenient: false
 scheme: "SEMVER"
-verbosity: "WARNING"
+verbosity: "DEBUG"
