@@ -23,3 +23,11 @@ repos:
     entry: gitlint
     args: [--staged, --msg-filename]
     stages: [commit-msg]
+- repo: local
+  hooks:
+    -   id: validate_fragments
+        name: validate changelog fragments
+        language: system
+        entry: pypy3 ./pars3.py
+        files: ^.unreleased/.*.md$
+        always_run: false

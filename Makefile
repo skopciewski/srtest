@@ -35,14 +35,7 @@ ifdef EDITOR
 	echo -e "### Removed\n" >> $$UNRELEASED_FILE; \
 	echo -e "### Fixed\n" >> $$UNRELEASED_FILE; \
 	$(EDITOR) $$UNRELEASED_FILE; \
-	pypy3 ./pars3.py $$UNRELEASED_FILE; \
-	if [ $$? -eq 0 ]; then \
-		echo "Script executed successfully"; \
-	else \
-		echo "Script failed"; \
-	fi; \
-	git add $$UNRELEASED_FILE; \
-	git commit -m "Add unreleased changelog fragment"
+	git add $$UNRELEASED_FILE;
 else
 	@echo "EDITOR variable is not defined. Please define it before running this command."
 	@exit 1
