@@ -1,40 +1,6 @@
 # Changelog
 
-## [1.6.0] - 2024-03-05
-
-note 1 asda sda sd a
-
-### Fixed
-
-- Add unreleased changelog fragment ([`1e29b77`](https://github.com/skopciewski/srtest/commit/1e29b77)) (simonk)
-- Add unreleased changelog fragment ([`f36968a`](https://github.com/skopciewski/srtest/commit/f36968a)) (simonk)
-- asda da ([`fc2f3f6`](https://github.com/skopciewski/srtest/commit/fc2f3f6)) (simonk)
-- Test test ([`588a274`](https://github.com/skopciewski/srtest/commit/588a274)) (simonk)
-- adadad ad ad ([`7decc90`](https://github.com/skopciewski/srtest/commit/7decc90)) (simonk)
-- add xxxx ([`4b057d1`](https://github.com/skopciewski/srtest/commit/4b057d1)) (simonk)
-- Test test ([`5411349`](https://github.com/skopciewski/srtest/commit/5411349)) (simonk)
-- Final chaneglog ([`4645035`](https://github.com/skopciewski/srtest/commit/4645035)) (simonk)
-- Test test ([`7d9acb6`](https://github.com/skopciewski/srtest/commit/7d9acb6)) (simonk)
-- Test test ([`e79b741`](https://github.com/skopciewski/srtest/commit/e79b741)) (simonk)
-- test a ([`8bcd02d`](https://github.com/skopciewski/srtest/commit/8bcd02d)) (simonk)
-- asdasda asd asd ([`4a6d17d`](https://github.com/skopciewski/srtest/commit/4a6d17d)) (simonk).
-- qrwer dasd ([`8ed26bd`](https://github.com/skopciewski/srtest/commit/8ed26bd)) (simonk).
-- fix: asdasd asd asd asd asd ([`136b7ce`](https://github.com/skopciewski/srtest/commit/136b7ce)) (simonk).
-- te ([`784ac8d`](https://github.com/skopciewski/srtest/commit/784ac8d)) (simonk)
-- x ([`7cfe3a3`](https://github.com/skopciewski/srtest/commit/7cfe3a3)) (simonk)
-- x ([`93e31b6`](https://github.com/skopciewski/srtest/commit/93e31b6)) (simonk)
-- x ([`02da841`](https://github.com/skopciewski/srtest/commit/02da841)) (simonk)
-- x ([`d8bc27f`](https://github.com/skopciewski/srtest/commit/d8bc27f)) (simonk)
-- asd ([`082c6cc`](https://github.com/skopciewski/srtest/commit/082c6cc)) (simonk)
-- fix: test new hook ([`714836a`](https://github.com/skopciewski/srtest/commit/714836a)) (simonk)
-- squash! : ([`c5df700`](https://github.com/skopciewski/srtest/commit/c5df700)) (simonk)
-- : ([`19a0edb`](https://github.com/skopciewski/srtest/commit/19a0edb)) (simonk)
-- : ([`2e4e5c5`](https://github.com/skopciewski/srtest/commit/2e4e5c5)) (simonk).
-- test ([`e135b9d`](https://github.com/skopciewski/srtest/commit/e135b9d)) (simonk)
-- Squashed commit of the following: ([`979da8e`](https://github.com/skopciewski/srtest/commit/979da8e)) (simonk).
-- fix: asd ([`b4cdedc`](https://github.com/skopciewski/srtest/commit/b4cdedc)) (simonk)
-- Test ([`066239b`](https://github.com/skopciewski/srtest/commit/066239b)) (simonk)
-- fix: test ([`cda8470`](https://github.com/skopciewski/srtest/commit/cda8470)) (simonk)
+Global nore
 
 ## [1.5.0] - 2024-03-05
 
@@ -101,8 +67,6 @@ note 1 asda sda sd a
 ## [1.0.0] - 2024-03-05
 
 _:seedling: Initial release._
-
-[1.6.0]: https://github.com/skopciewski/srtest/releases/tag/v1.6.0
 
 [1.5.0]: https://github.com/skopciewski/srtest/releases/tag/1.5.0
 
