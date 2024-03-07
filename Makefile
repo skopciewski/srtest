@@ -11,7 +11,7 @@ chaneglog:
 ifdef EDITOR
 	@UNRELEASED_FILE=.unreleased/$(shell date +"%Y%m%d%H%M%S").md; \
 	mkdir -p $${UNRELEASED_FILE%/*}; \
-	echo -e "<!---" > $$UNRELEASED_FILE; \
+	echo -e "<!--" > $$UNRELEASED_FILE; \
 	BRANCH_NAME=$$(git symbolic-ref --short HEAD); \
 	BUMP="patch"; \
 	if echo $$BRANCH_NAME | grep -Eq '^feature/'; then \
@@ -28,7 +28,7 @@ ifdef EDITOR
 	if [ -n "$$ISSUE_ID" ]; then \
 		echo -e "- ref: $$ISSUE_ID" >> $$UNRELEASED_FILE; \
 	fi; \
-	echo -e "--->\n" >> $$UNRELEASED_FILE; \
+	echo -e "-->\n" >> $$UNRELEASED_FILE; \
 	echo -e "### Notice\n" >> $$UNRELEASED_FILE; \
 	echo -e "### Changed\n" >> $$UNRELEASED_FILE; \
 	echo -e "### Added\n" >> $$UNRELEASED_FILE; \

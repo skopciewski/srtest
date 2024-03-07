@@ -2,6 +2,8 @@
 
 ## [1.6.0] - 2024-03-05
 
+note 1 asda sda sd a
+
 ### Fixed
 
 - Add unreleased changelog fragment ([`1e29b77`](https://github.com/skopciewski/srtest/commit/1e29b77)) (simonk)
