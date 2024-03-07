@@ -2,28 +2,24 @@
 # See https://pre-commit.com/hooks.html for more hooks
 default_install_hook_types: [pre-commit, commit-msg]
 default_stages: [pre-commit]
+
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v4.5.0
   hooks:
   - id: check-merge-conflict
   - id: check-shebang-scripts-are-executable
-# - repo: https://gitlab.com/schmieder.matthias/python-kacl
-#   rev: v0.4.6
-#   hooks:
-#   - id: kacl-verify
-- repo: https://github.com/jorisroovers/gitlint
-  rev: v0.19.1
+- repo: https://github.com/skopciewski/hallmark
+  rev: 4.2.0-1
   hooks:
-  - id: gitlint
-    name: gitlint
-    description: Checks your git commit messages for style.
-    language: python
-    additional_dependencies: ["./gitlint-core[trusted-deps]"]
-    entry: gitlint
-    args: [--staged, --msg-filename]
-    stages: [commit-msg]
+  - id: hallmark
+    always_run: true
 - repo: https://github.com/skopciewski/cc-helper
   rev: 0.1.0
   hooks:
   - id: cc_validator
+- repo: https://github.com/jorisroovers/gitlint
+  rev: v0.19.1
+  hooks:
+  - id: gitlint
+    stages: [commit-msg]
