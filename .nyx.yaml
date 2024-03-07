@@ -1,7 +1,30 @@
 ---
 dryRun: false
-initialVersion: "0.1.0"
-preset: simple
-releaseLenient: false
-scheme: "SEMVER"
 verbosity: "DEBUG"
+scheme: "SEMVER"
+initialVersion: "1.0.0"
+releaseLenient: false
+
+summary: true
+stateFile: ".nyx-state.yaml"
+resume: true
+
+commitMessageConventions/enabled: []
+
+substitutions:
+  enabled:
+    - ruby
+    - changelog
+  items:
+    ruby:
+      files: "**/lib/*/version.rb"
+      match: "VERSION(\\s)*=(\\s)*\"(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\""
+      replace: "VERSION = \"{{version}}\""
+    changelog:
+      files: "**/CHANGELOG.md"
+      match: "(?s)(?m)(# Changelog)(.*?)(## \\[\\d)"
+      replace: >-
+        $1$2## [{{version}}] - {{#timeFormat format="2006-01-02"}}{{timestamp}}{{/timeFormat}}
+
+
+        {{#fileContent}}output.md{{/fileContent}}$3
