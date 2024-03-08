@@ -8,23 +8,33 @@ releaseLenient: false
 summary: true
 stateFile: ".nyx-state.yaml"
 resume: true
+sharedConfigurationFile: ".nyx-shared-bump.yml"
 
 commitMessageConventions/enabled: []
 
 substitutions:
   enabled:
     - ruby
-    - changelog
+    - changelog_fragment
+    - changelog_version_link
   items:
     ruby:
       files: "**/lib/*/version.rb"
       match: "VERSION(\\s)*=(\\s)*\"(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\""
       replace: "VERSION = \"{{version}}\""
-    changelog:
+    changelog_fragment:
       files: "**/CHANGELOG.md"
       match: "(?s)(?m)(# Changelog)(.*?)(## \\[\\d)"
       replace: >-
         $1$2## [{{version}}] - {{#timeFormat format="2006-01-02"}}{{timestamp}}{{/timeFormat}}
 
 
-        {{#fileContent}}output.md{{/fileContent}}$3
+        {{#fileContent}}.nyx-cc-fragment.md{{/fileContent}}$3
+    changelog_version_link:
+      files: "**/CHANGELOG.md"
+      match: "(?s)(?m)(^\\[(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)]:\\shttp.*)|(\\z)"
+      replace: >-
+
+        link
+
+        $1

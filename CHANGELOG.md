@@ -1,25 +1,5 @@
 # Changelog
 
-## [1.6.0] - 2024-03-07
-
-note 1 asdasdasdasd ad
-
-test
-
-asd
-
-note 2
-
-### Added
-
-- asda sda da
-- asd asd ad a
-
-### Changed
-
-- cange 1
-- change 2
-
 ## [1.5.0] - 2024-03-05
 
 ### Fixed
@@ -85,8 +65,6 @@ note 2
 ## [1.0.0] - 2024-03-05
 
 _:seedling: Initial release._
-
-[1.6.0]: https://github.com/skopciewski/srtest/releases/tag/1.5.0
 
 [1.5.0]: https://github.com/skopciewski/srtest/releases/tag/1.5.0
 
