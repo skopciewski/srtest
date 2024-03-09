@@ -60,7 +60,7 @@ releaseTypes:
         - "latest"
       matchBranches: "^(master|main)$"
       matchEnvironmentVariables:
-      matchWorkspaceStatus: "CLEAN"
+      matchWorkspaceStatus:
       publish: false
       releaseName: "Release {{version}}"
       versionRangeFromBranchName: false

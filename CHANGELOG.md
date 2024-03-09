@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.5.1] - 2024-03-09
+
+### Changed
+
+- asdasdasdas 1
+- asdasdasdasda 2
+
+### Removed
+
+- xxxxxxxxx
+
 ## [1.5.0] - 2024-03-05
 
 ### Fixed
@@ -65,6 +76,9 @@
 ## [1.0.0] - 2024-03-05
 
 _:seedling: Initial release._
+
+
+[1.5.1]: https://github
 
 [1.5.0]: https://github.com/skopciewski/srtest/releases/tag/1.5.0
 
