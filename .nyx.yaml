@@ -32,9 +32,35 @@ substitutions:
         {{#fileContent}}.nyx-cc-fragment.md{{/fileContent}}$3
     changelog_version_link:
       files: "**/CHANGELOG.md"
-      match: "(?s)(?m)(^\\[(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)]:\\shttp.*)|(\\z)"
-      replace: >-
+      match: "(?s)(?m)(\\A.*?)(?=((?:^\\[(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\]:\\shttp.*)|\\z))"
+      replace: "$1\n[{{version}}]: https://github\n\n"
 
-        link
+git:
+  remotes:
+    origin:
+      authenticationMethod: PUBLIC_KEY
 
-        $1
+releaseTypes:
+  enabled:
+    - mainline
+  publicationServices:
+  items:
+    mainline:
+      collapseVersions: false
+      filterTags: "^({{configuration.releasePrefix}})?([0-9]\\d*)\\.([0-9]\\d*)\\.([0-9]\\d*)$"
+      gitCommit: true
+      gitCommitMessage: "Release version {{version}}"
+      gitPush: true
+      gitPushForce: true
+      gitTag: true
+      gitTagForce: true
+      gitTagMessage: "Tag release {{version}}"
+      gitTagNames:
+        - "{{version}}"
+        - "latest"
+      matchBranches: "^(master|main)$"
+      matchEnvironmentVariables:
+      matchWorkspaceStatus: "CLEAN"
+      publish: false
+      releaseName: "Release {{version}}"
+      versionRangeFromBranchName: false
