@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.5.2] - 2024-03-09
+
+asdasd asdasd
+
 ## [1.5.1] - 2024-03-09
 
 ### Changed
@@ -77,6 +81,9 @@
 
 _:seedling: Initial release._
 
+
+
+[1.5.2]: https://github
 
 [1.5.1]: https://github
 
