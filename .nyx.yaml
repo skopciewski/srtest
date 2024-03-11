@@ -62,7 +62,7 @@ releaseTypes:
         - "latest"
       matchBranches: "^(master|main)$"
       matchEnvironmentVariables:
-      matchWorkspaceStatus:
+      matchWorkspaceStatus: "CLEAN"
       publish: true
       releaseName: "{{configuration.services.github.options.REPOSITORY_NAME}} {{version}}"
       description: "{{#fileContent}}.nyx-cc-fragment.md{{/fileContent}}"
