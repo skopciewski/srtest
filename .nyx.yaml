@@ -64,7 +64,8 @@ releaseTypes:
       matchEnvironmentVariables:
       matchWorkspaceStatus:
       publish: true
-      releaseName: "Release {{version}}"
+      releaseName: "{{configuration.services.github.options.REPOSITORY_NAME}} {{version}}"
+      description: "{{#fileContent}}.nyx-cc-fragment.md{{/fileContent}}"
       versionRangeFromBranchName: false
 
 services:
