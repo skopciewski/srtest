@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.5.5] - 2024-03-11
+
+asdasd asdasd
+
 ## [1.5.4] - 2024-03-11
 
 asdasd asdasd
@@ -91,6 +95,8 @@ _:seedling: Initial release._
 
 
 
+
+[1.5.5]: https://github.com/skopciewski/srtest/releases/tag/1.5.5
 
 [1.5.4]: https://github.com/skopciewski/srtest/releases/tag/1.5.4
 
