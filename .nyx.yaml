@@ -33,7 +33,7 @@ substitutions:
     changelog_version_link:
       files: "**/CHANGELOG.md"
       match: "(?s)(?m)(\\A.*?)(?=((?:^\\[(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\]:\\shttp.*)|\\z))"
-      replace: "$1\n[{{version}}]: https://github\n\n"
+      replace: "$1[{{version}}]: https://github.com/{{configuration.services.github.options.REPOSITORY_OWNER}}/{{configuration.services.github.options.REPOSITORY_NAME}}/releases/tag/{{version}}\n\n"
 
 git:
   remotes:
@@ -44,6 +44,7 @@ releaseTypes:
   enabled:
     - mainline
   publicationServices:
+    - github
   items:
     mainline:
       collapseVersions: false
@@ -61,6 +62,14 @@ releaseTypes:
       matchBranches: "^(master|main)$"
       matchEnvironmentVariables:
       matchWorkspaceStatus:
-      publish: false
+      publish: true
       releaseName: "Release {{version}}"
       versionRangeFromBranchName: false
+
+services:
+  github:
+    type: "GITHUB"
+    options:
+      AUTHENTICATION_TOKEN: "{{#environmentVariable}}GITHUB_TOKEN{{/environmentVariable}}"
+      REPOSITORY_OWNER: "skopciewski"
+      REPOSITORY_NAME: "srtest"
