@@ -39,6 +39,7 @@ git:
   remotes:
     origin:
       authenticationMethod: PUBLIC_KEY
+      privateKey: ".ssh/skopciewski"
 
 releaseTypes:
   enabled:
